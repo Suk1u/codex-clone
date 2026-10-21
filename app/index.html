@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Codex</title>
+<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-square-pen" viewBox="0 0 16 16"><path d="M12.6 8.6v3.6a2.4 2.4 0 0 1-2.4 2.4H3.8a2.4 2.4 0 0 1-2.4-2.4V5.8a2.4 2.4 0 0 1 2.4-2.4h3.6"/><path d="M11.2 2.1l2.7 2.7-6 6-3.4.7.7-3.4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.4"/><path d="M10.4 10.4 14 14"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1.5"/><rect x="9" y="2" width="5" height="5" rx="1.5"/><rect x="2" y="9" width="5" height="5" rx="1.5"/><rect x="9" y="9" width="5" height="5" rx="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.9"/><path d="M8 4.5V8l2.5 1.6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16"><rect x="4.2" y="1.7" width="7.6" height="12.6" rx="2.1"/><path d="M6.9 12.2h2.2"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 16 16"><path d="M2 5.4a2 2 0 0 1 2-2h2.1L7.6 5H12a2 2 0 0 1 2 2v4.4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-folder-code" viewBox="0 0 16 16"><path d="M2 5.4a2 2 0 0 1 2-2h2.1L7.6 5H12a2 2 0 0 1 2 2v4.4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path d="M6.5 8.4 5.3 9.6l1.2 1.2M9.5 8.4l1.2 1.2-1.2 1.2"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.2"/><path d="M8 1.9v1.5M8 12.6v1.5M1.9 8h1.5M12.6 8h1.5M3.7 3.7l1.1 1.1M11.2 11.2l1.1 1.1M12.3 3.7l-1.1 1.1M4.8 11.2l-1.1 1.1"/></symbol>
+  <symbol id="i-panel-left" viewBox="0 0 16 16"><rect x="2" y="2.6" width="12" height="10.8" rx="2.4"/><path d="M6.4 2.6v10.8"/></symbol>
+  <symbol id="i-panel-right" viewBox="0 0 16 16"><rect x="2" y="2.6" width="12" height="10.8" rx="2.4"/><path d="M9.6 2.6v10.8"/></symbol>
+  <symbol id="i-chev-down" viewBox="0 0 16 16"><path d="M4.2 6.4 8 10.2l3.8-3.8"/></symbol>
+  <symbol id="i-chev-right" viewBox="0 0 16 16"><path d="M6.4 4.2 10.2 8l-3.8 3.8"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.9"/><path d="M2.1 8h11.8M8 2.1c1.6 1.7 2.4 3.7 2.4 5.9S9.6 12.2 8 13.9C6.4 12.2 5.6 10.2 5.6 8S6.4 3.8 8 2.1z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 16 16"><path d="M4.7 12.3h6.8a2.9 2.9 0 0 0 .3-5.8 4.1 4.1 0 0 0-7.9-.6 3.2 3.2 0 0 0 .8 6.4z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 16 16"><path d="M8 10.4V2.2"/><path d="M5.2 5 8 2.2 10.8 5"/><path d="M3 9.4v2.8A1.8 1.8 0 0 0 4.8 14h6.4a1.8 1.8 0 0 0 1.8-1.8V9.4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 16 16"><path d="M8 3.2v9.6M3.2 8h9.6"/></symbol>
+  <symbol id="i-more" viewBox="0 0 16 16"><circle cx="3.4" cy="8" r="1.15" fill="currentColor" stroke="none"/><circle cx="8" cy="8" r="1.15" fill="currentColor" stroke="none"/><circle cx="12.6" cy="8" r="1.15" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 16 16"><path d="M8 13.2V3.2"/><path d="M3.8 7.4 8 3.2l4.2 4.2"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 16 16"><rect x="6" y="1.8" width="4" height="7.4" rx="2"/><path d="M3.6 7.6a4.4 4.4 0 0 0 8.8 0M8 12v2.2"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 16 16"><path d="M12.6 7.4 8 12a3.1 3.1 0 0 1-4.4-4.4l4.9-4.9a2.1 2.1 0 0 1 3 3l-4.9 4.9a1 1 0 0 1-1.4-1.4l4.4-4.4"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 16 16"><path d="M3.2 4.6 6.6 8l-3.4 3.4M8.8 11.6h4"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 16 16"><path d="M8 1.8 9.35 6 13.6 7.35 9.35 8.7 8 12.9 6.65 8.7 2.4 7.35 6.65 6z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 16 16"><path d="M9.2 2H5.4A1.8 1.8 0 0 0 3.6 3.8v8.4A1.8 1.8 0 0 0 5.4 14h5.2a1.8 1.8 0 0 0 1.8-1.8V5.2z"/><path d="M9 2v3.2h3.4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.6 6.2 11.8 13 5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M4.2 4.2 11.8 11.8M11.8 4.2 4.2 11.8"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 16 16"><rect x="5.6" y="5.6" width="8" height="8" rx="2"/><path d="M10.4 5.6V4.4a2 2 0 0 0-2-2H4.4a2 2 0 0 0-2 2v4.2a2 2 0 0 0 2 2h1.2"/></symbol>
+  <symbol id="i-up" viewBox="0 0 16 16"><path d="M5.6 13.8V6.9l2.9-4.5a1.5 1.5 0 0 1 1.5 1.5v2.7h2.4a1.6 1.6 0 0 1 1.6 1.9l-.8 4.2a1.6 1.6 0 0 1-1.6 1.1z"/><path d="M5.6 6.9H3.9A1.5 1.5 0 0 0 2.4 8.4v3.9A1.5 1.5 0 0 0 3.9 13.8h1.7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M10.4 2.2v6.9l-2.9 4.5a1.5 1.5 0 0 1-1.5-1.5V9.4H3.6a1.6 1.6 0 0 1-1.6-1.9l.8-4.2A1.6 1.6 0 0 1 4.4 2.2z"/><path d="M10.4 9.1h1.7a1.5 1.5 0 0 0 1.5-1.5V3.7a1.5 1.5 0 0 0-1.5-1.5h-1.7"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 16 16"><path d="M13.2 8a5.2 5.2 0 1 1-1.7-3.9"/><path d="M13.4 2.3v3.3h-3.3"/></symbol>
+  <symbol id="i-branch" viewBox="0 0 16 16"><circle cx="4.6" cy="3.4" r="1.6"/><circle cx="4.6" cy="12.6" r="1.6"/><circle cx="11.4" cy="5.6" r="1.6"/><path d="M4.6 5v6M11.4 7.2c0 2.2-1.6 2.8-4 3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 16 16"><path d="M8 1.8 13 3.6v4.1c0 3.1-2 5.5-5 6.5-3-1-5-3.4-5-6.5V3.6z"/></symbol>
+</defs></svg>
+
+<div class="window" id="window" data-sidebar="expanded">
+
+  <!-- ============================ titlebar ============================ -->
+  <header class="titlebar">
+    <div class="traffic"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+
+    <button class="tb-btn" id="btn-sidebar" title="Toggle sidebar" aria-pressed="true">
+      <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-panel-left"/></svg>
+    </button>
+    <button class="tb-btn" title="Workspace">
+      <svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chev-down"/></svg>
+    </button>
+
+    <div class="tabstrip" id="tabstrip">
+      <button class="tab" aria-selected="false">
+        <svg class="icon tab-fav" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-cloud"/></svg>
+        <span class="tab-label">OpenAI | Research &amp; Deployment</span>
+        <span class="tab-close"><svg class="icon" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><use href="#i-x"/></svg></span>
+      </button>
+      <button class="tab" aria-selected="true">
+        <svg class="icon tab-fav" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-terminal"/></svg>
+        <span class="tab-label">Sidebar collapse</span>
+        <span class="tab-close"><svg class="icon" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><use href="#i-x"/></svg></span>
+      </button>
+      <button class="tab-add" title="New tab">
+        <svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><use href="#i-plus"/></svg>
+      </button>
+    </div>
+
+    <div class="titlebar-right">
+      <button class="tb-btn" title="Share">
+        <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-share"/></svg>
+      </button>
+      <button class="tb-btn" id="btn-theme" title="Toggle theme">
+        <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sparkle"/></svg>
+      </button>
+      <button class="tb-btn" id="btn-artifact" title="Toggle side panel" aria-pressed="true">
+        <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-panel-right"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================== body ============================== -->
+  <div class="body">
+
+    <!-- ---------------------------- sidebar --------------------------- -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-scroll" id="sidebar-scroll">
+        <button class="nav-row" id="btn-new-chat">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-square-pen"/></svg>
+          New chat
+        </button>
+        <button class="nav-row">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-search"/></svg>
+          Search
+        </button>
+        <button class="nav-row">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-grid"/></svg>
+          Plugins
+        </button>
+        <button class="nav-row">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+          Automations
+        </button>
+        <button class="nav-row">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
+          Codex mobile
+        </button>
+
+        <div class="section-label">Pinned</div>
+        <button class="thread-row"><span class="label">Create Fluid Layout</span><span class="meta">2h</span></button>
+
+        <div class="section-label">Projects</div>
+        <button class="thread-row">
+          <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-folder-code"/></svg>
+          <span class="label">designtool</span>
+        </button>
+        <button class="thread-row">
+          <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-folder"/></svg>
+          <span class="label">Designs</span>
+        </button>
+        <button class="thread-row">
+          <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-folder"/></svg>
+          <span class="label">empty web example</span>
+        </button>
+        <button class="thread-row">
+          <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-folder-code"/></svg>
+          <span class="label">superassistant</span>
+        </button>
+
+        <div class="section-label">Chats</div>
+        <button class="thread-row" aria-current="true">
+          <span class="label">Sidebar collapse</span><span class="meta">now</span>
+        </button>
+        <button class="thread-row"><span class="label">summarize this</span><span class="meta">2h</span></button>
+        <button class="thread-row"><span class="label">Center Safari window</span><span class="meta">1.3m</span></button>
+        <button class="thread-row"><span class="label">Trip Planning</span><span class="meta">2.1m</span></button>
+        <button class="thread-row"><span class="label">Bump deps to 0.14</span><span class="meta">3h</span></button>
+        <button class="thread-row"><span class="label">Why is the flaky test red</span><span class="meta">5h</span></button>
+        <button class="thread-row"><span class="label">Port hover card to CSS</span><span class="meta">1d</span></button>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="nav-row">
+          <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-gear"/></svg>
+          Settings
+        </button>
+        <button class="account">
+          <span class="avatar">H</span>
+          <span class="name">He</span>
+          <span class="plan">Plus</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ----------------------------- main ----------------------------- -->
+    <main class="surface" id="surface">
+
+      <div class="surface-header">
+        <div class="surface-title" id="surface-title">Sidebar collapse</div>
+        <div class="surface-actions">
+          <button class="icon-btn" title="Copy thread">
+            <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-copy"/></svg>
+          </button>
+          <button class="icon-btn" title="More">
+            <svg class="icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-more"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="surface-body">
+
+        <div class="chat-col">
+
+        <!-- thread -->
+        <div class="thread-scroll" id="thread-scroll">
+          <div class="thread" id="thread">
+
+            <div class="turn-user">the sidebar collapse animation is janky when the window resizes. fix it and add a test so it doesn't regress.</div>
+
+            <div class="thinking" data-done="true">
+              <svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sparkle"/></svg>
+              Thought for 6s
+            </div>
+
+            <div class="tool">
+              <div class="tool-head">
+                <svg class="icon tool-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-terminal"/></svg>
+                <span class="tool-title">Ran</span>
+                <span class="tool-sub">rg -n "collapsed" src/components/Sidebar.tsx</span>
+                <span class="tool-status"><span class="dot"></span>exit 0</span>
+              </div>
+              <pre class="term"><span class="cmd">42:  const [collapsed, setCollapsed] = useState(false)</span>
+<span class="cmd">57:      className={cn(styles.sidebar, collapsed &amp;&amp; styles.isCollapsed)}</span>
+<span class="dim">… 3 more matches</span></pre>
+            </div>
+
+            <div class="assistant">
+              <p>The jank is the <code>width</code> transition. It forces layout on every frame because the sidebar is in normal flow and its children reflow against the new width. Two changes:</p>
+              <ul>
+                <li>Animate <code>transform: translateX()</code> on the panel and let the main surface expand with <code>grid-template-columns</code>, which the compositor handles.</li>
+                <li>Kill the transition entirely while a window resize is in flight — that's where the two animations were fighting.</li>
+              </ul>
+            </div>
+
+            <div class="tool">
+              <div class="tool-head">
+                <svg class="icon tool-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file"/></svg>
+                <span class="tool-title">Edited</span>
+                <span class="tool-sub">src/components/Sidebar.tsx</span>
+                <span class="spacer"></span>
+                <span class="tool-status"><span class="stat-add">+18</span>&nbsp;<span class="stat-del">−7</span></span>
+              </div>
+              <div class="diff" id="diff-block"></div>
+            </div>
+
+            <div class="assistant">
+              <p>Added a regression test that asserts the panel never transitions while <code>isResizing</code> is true, and that the transform settles to <code>translateX(-100%)</code>.</p>
+            </div>
+
+            <div class="tool">
+              <div class="tool-head">
+                <svg class="icon tool-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-terminal"/></svg>
+                <span class="tool-title">Ran</span>
+                <span class="tool-sub">pnpm vitest run src/components/Sidebar.test.tsx</span>
+                <span class="tool-status"><span class="dot"></span>3 passed</span>
+              </div>
+              <pre class="term"><span class="ok">✓</span> collapses without transitioning during resize <span class="dim">(41ms)</span>
+<span class="ok">✓</span> restores width after resize ends <span class="dim">(12ms)</span>
+<span class="ok">✓</span> keyboard toggle keeps focus on trigger <span class="dim">(8ms)</span>
+
+<span class="dim">Test Files</span>  1 passed (1)
+<span class="dim">Tests</span>       3 passed (3)
+<span class="dim">Duration</span>    1.42s</pre>
+            </div>
+
+            <div class="assistant">
+              <p>Green. The panel now collapses in 160ms on the compositor, and resize no longer queues a competing transition.</p>
+            </div>
+
+          </div>
+          <div style="height:12px"></div>
+        </div>
+
+        <!-- composer -->
+        <div class="composer-wrap" id="composer-wrap">
+          <div class="composer">
+            <textarea class="composer-input" id="input" rows="1" placeholder="Ask for follow-up changes"></textarea>
+            <div class="composer-footer">
+              <button class="attach" title="Attach">
+                <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-plus"/></svg>
+              </button>
+              <button class="chip" id="chip-approval">
+                <svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-shield"/></svg>
+                <span id="approval-label">Auto-review</span>
+                <svg class="icon chev" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chev-down"/></svg>
+              </button>
+              <span class="composer-spacer"></span>
+              <button class="chip" id="chip-model">
+                <svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sparkle"/></svg>
+                <span id="model-label">5.5&nbsp;Low</span>
+                <svg class="icon chev" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chev-down"/></svg>
+              </button>
+              <button class="attach" title="Dictate">
+                <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-mic"/></svg>
+              </button>
+              <button class="send" id="btn-send" title="Send" disabled>
+                <svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- home / empty state -->
+        <div class="home" id="home" hidden>
+          <div class="home-hero">
+            <img class="dark-only" src="assets/codex-cloud-dark.png" alt="" />
+            <img class="light-only" src="assets/codex-cloud-light.png" alt="" />
+          </div>
+          <div class="home-title">What are we building?</div>
+          <div class="composer-wrap">
+            <div class="composer">
+              <textarea class="composer-input" id="input-home" rows="1" placeholder="Ask Codex anything, @ to add files"></textarea>
+              <div class="composer-footer">
+                <button class="attach"><svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-plus"/></svg></button>
+                <button class="chip"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-shield"/></svg>Auto-review<svg class="icon chev" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chev-down"/></svg></button>
+                <span class="composer-spacer"></span>
+                <button class="chip"><svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-sparkle"/></svg>5.5&nbsp;Low<svg class="icon chev" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-chev-down"/></svg></button>
+                <button class="send" disabled><svg class="icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow-up"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="home-chips">
+            <button class="home-chip"><svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-terminal"/></svg>Fix a failing test</button>
+            <button class="home-chip"><svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file"/></svg>Explain this codebase</button>
+            <button class="home-chip"><svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-branch"/></svg>Review my diff</button>
+          </div>
+        </div>
+
+        </div><!-- /chat-col -->
+
+        <!-- artifact panel -->
+        <aside class="artifact" id="artifact">
+          <div class="artifact-head">
+            <button class="art-tab" data-pane="preview" aria-selected="false">
+              <svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-globe"/></svg>
+              Preview
+            </button>
+            <button class="art-tab" data-pane="code" aria-selected="false">
+              <svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file"/></svg>
+              Files
+            </button>
+            <button class="art-tab" data-pane="diff" aria-selected="true">
+              <svg class="icon" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><use href="#i-branch"/></svg>
+              Changes
+            </button>
+            <span class="composer-spacer"></span>
+            <button class="icon-btn" title="Close panel" id="btn-close-artifact">
+              <svg class="icon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><use href="#i-x"/></svg>
+            </button>
+          </div>
+          <div class="artifact-body" id="artifact-body"></div>
+        </aside>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="menu" id="menu" hidden></div>
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# extracted reference material — regenerate with tools/
+# everything below is derived from the installed Codex package or the
+# codex-ui-kit npm tarball; see ANALYSIS.md §8 for the commands
+ref/
+
+# os / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.idea/
+.vscode/
+node_modules/
